@@ -1,0 +1,1 @@
+Asset Assigned: {{ doc.asset_name }} — {{ doc.company }}

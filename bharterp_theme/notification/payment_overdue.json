@@ -1,0 +1,12 @@
+{
+  "name": "BhartERP Payment Overdue",
+  "module": "BhartERP Theme",
+  "document_type": "Sales Invoice",
+  "event": "Days After",
+  "days_in_advance": 1,
+  "date_changed": "due_date",
+  "condition": "doc.outstanding_amount > 0 and doc.docstatus == 1",
+  "subject": "⚠ Overdue Payment — {{ doc.name }} | {{ doc.company }}",
+  "recipients": [{"receiver_by_document_field": "contact_email"}],
+  "enabled": 1
+}

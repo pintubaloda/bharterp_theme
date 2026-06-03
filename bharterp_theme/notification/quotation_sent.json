@@ -1,0 +1,10 @@
+{
+  "name": "BhartERP Quotation to Customer",
+  "module": "BhartERP Theme",
+  "document_type": "Quotation",
+  "event": "Submit",
+  "condition": "doc.docstatus == 1",
+  "subject": "Quotation from {{ doc.company }}: {{ doc.name }}",
+  "recipients": [{"receiver_by_document_field": "contact_email"}],
+  "enabled": 1
+}

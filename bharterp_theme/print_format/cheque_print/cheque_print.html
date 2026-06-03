@@ -1,0 +1,56 @@
+{%- set company = frappe.get_doc("Company", doc.company) -%}
+<style>@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap");:root{--saffron:#E8641A;--jade:#1A6B4A;}*{box-sizing:border-box;margin:0;padding:0;}body{font-family:"DM Sans",Arial,sans-serif;color:#1A1A1A;font-size:12px;}.footer-bar{background:#F5F3EF;padding:10px 28px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #E8E4DC;}.footer-brand{font-family:"Syne",sans-serif;font-size:12px;font-weight:800;color:var(--saffron);}</style>
+<style>
+.cheque-outer{padding:20px 28px;background:white;}
+.cheque{width:680px;height:280px;border:1.5px solid #333;border-radius:6px;padding:0;overflow:hidden;position:relative;background:white;}
+.cheque-band{height:40px;background:var(--saffron);display:flex;align-items:center;justify-content:space-between;padding:0 20px;}
+.cheque-logo{font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:white;}
+.cheque-logo span{color:rgba(255,255,255,.55);}
+.cheque-bank{font-size:10px;color:rgba(255,255,255,.8);}
+.cheque-body{padding:14px 20px;display:flex;flex-direction:column;gap:10px;}
+.cheque-row{display:flex;align-items:flex-end;gap:12px;}
+.cheque-lbl{font-size:10px;color:#555;white-space:nowrap;min-width:80px;}
+.cheque-line{flex:1;border-bottom:1px solid #999;min-height:20px;padding:0 6px;font-size:12px;font-weight:500;color:#111;}
+.cheque-amount-box{border:1.5px solid #333;padding:6px 12px;border-radius:4px;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;min-width:140px;text-align:right;}
+.cheque-words-row{display:flex;align-items:flex-end;gap:12px;}
+.micr{position:absolute;bottom:10px;left:20px;font-size:11px;font-family:monospace;letter-spacing:.2em;color:#555;}
+.cheque-sign{position:absolute;bottom:20px;right:20px;text-align:right;}
+.cheque-sign-line{width:140px;border-bottom:1px solid #333;margin-bottom:4px;}
+.cheque-sign-lbl{font-size:9px;color:#888;}
+</style>
+<div class="cheque-outer">
+  <div style="font-size:10px;color:#888;margin-bottom:10px;font-style:italic">Cheque Preview — {{ doc.name }} · {{ frappe.format(doc.posting_date, {'fieldtype':'Date'}) }}</div>
+  <div class="cheque">
+    <div class="cheque-band">
+      <div class="cheque-logo">Bhart<span>ERP</span></div>
+      <div class="cheque-bank">{{ doc.bank or company.bank_account or 'HDFC Bank' }} &nbsp;|&nbsp; {{ doc.bank_account or '—' }}</div>
+      <div style="font-size:10px;color:rgba(255,255,255,.8)">Date: {{ frappe.format(doc.posting_date, {'fieldtype':'Date'}) }}</div>
+    </div>
+    <div class="cheque-body">
+      <div class="cheque-row">
+        <div class="cheque-lbl">Pay to</div>
+        <div class="cheque-line">{{ doc.party_name or doc.party or '—' }}</div>
+        <div style="font-size:10px;color:#555;white-space:nowrap">A/c Payee Only</div>
+      </div>
+      <div class="cheque-words-row">
+        <div class="cheque-lbl">Rupees</div>
+        <div class="cheque-line">{{ doc.in_words or doc.paid_amount_in_words or '—' }}</div>
+        <div class="cheque-amount-box">₹ {{ frappe.format(doc.paid_amount or doc.grand_total, {'fieldtype':'Currency'}) }}</div>
+      </div>
+      <div class="cheque-row" style="margin-top:4px">
+        <div class="cheque-lbl">Ref / PO No.</div>
+        <div class="cheque-line" style="max-width:200px">{{ doc.reference_no or doc.name }}</div>
+        <div class="cheque-lbl" style="margin-left:20px">Account No.</div>
+        <div class="cheque-line" style="max-width:160px;font-family:monospace">{{ doc.bank_account or '—' }}</div>
+      </div>
+    </div>
+    <div class="micr">⑆ {{ doc.micr_code or '000000000' }} ⑆ {{ doc.cheque_no or '000000' }} ⑆</div>
+    <div class="cheque-sign">
+      <div class="cheque-sign-line"></div>
+      <div class="cheque-sign-lbl">Authorised Signatory</div>
+      <div class="cheque-sign-lbl">{{ doc.company }}</div>
+    </div>
+  </div>
+  <div style="font-size:9px;color:#999;margin-top:10px;font-style:italic">This is a computer-generated cheque preview. Actual cheque to be signed by authorised signatory.</div>
+</div>
+<div class="footer-bar"><div class="footer-brand">BhartERP</div><div style="font-size:9px;color:#999">{{ doc.company }} · {{ doc.name }}</div></div>

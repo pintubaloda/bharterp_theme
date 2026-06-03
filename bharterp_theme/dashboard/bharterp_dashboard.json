@@ -1,0 +1,77 @@
+{
+  "name": "BhartERP Dashboard",
+  "module": "BhartERP Theme",
+  "is_default": 1,
+  "charts": [
+    {
+      "chart_name": "BhartERP Monthly Revenue",
+      "chart_type": "Sum",
+      "document_type": "Sales Invoice",
+      "aggregate_function_based_on": "grand_total",
+      "based_on": "posting_date",
+      "group_by": "Monthly",
+      "filters_json": "{\"docstatus\": 1}",
+      "color": "#E8641A"
+    },
+    {
+      "chart_name": "BhartERP Monthly Purchase",
+      "chart_type": "Sum",
+      "document_type": "Purchase Invoice",
+      "aggregate_function_based_on": "grand_total",
+      "based_on": "posting_date",
+      "group_by": "Monthly",
+      "filters_json": "{\"docstatus\": 1}",
+      "color": "#1A6B4A"
+    },
+    {
+      "chart_name": "BhartERP Receivable Aging",
+      "chart_type": "Report",
+      "report_name": "Accounts Receivable",
+      "color": "#D4A843"
+    }
+  ],
+  "cards": [
+    {
+      "card_name": "BhartERP Unpaid Invoices",
+      "document_type": "Sales Invoice",
+      "filters_json": "{\"docstatus\": 1, \"outstanding_amount\": [\">\" ,0]}",
+      "function": "Count",
+      "color": "#E8641A"
+    },
+    {
+      "card_name": "BhartERP Overdue Invoices",
+      "document_type": "Sales Invoice",
+      "filters_json": "{\"docstatus\": 1, \"status\": \"Overdue\"}",
+      "function": "Count",
+      "color": "#991B1B"
+    },
+    {
+      "card_name": "BhartERP Open POs",
+      "document_type": "Purchase Order",
+      "filters_json": "{\"docstatus\": 1, \"status\": [\"in\", [\"To Receive and Bill\", \"To Bill\", \"To Receive\"]]}",
+      "function": "Count",
+      "color": "#1A6B4A"
+    },
+    {
+      "card_name": "BhartERP Active Employees",
+      "document_type": "Employee",
+      "filters_json": "{\"status\": \"Active\"}",
+      "function": "Count",
+      "color": "#4B91E2"
+    },
+    {
+      "card_name": "BhartERP Low Stock Items",
+      "document_type": "Bin",
+      "filters_json": "{}",
+      "function": "Count",
+      "color": "#D4A843"
+    },
+    {
+      "card_name": "BhartERP Open Support Tickets",
+      "document_type": "Issue",
+      "filters_json": "{\"status\": \"Open\"}",
+      "function": "Count",
+      "color": "#8B5CF6"
+    }
+  ]
+}

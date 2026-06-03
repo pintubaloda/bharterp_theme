@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+
+/* ============================================================
+   BhartERP Theme — ERPNext Desk Override
+   Paisape Techfin Private Limited
+   ============================================================ */
+
+
+
+:root {
+  --bt-saffron:        #E8641A;
+  --bt-saffron-dark:   #B84E12;
+  --bt-saffron-light:  #FDF0E8;
+  --bt-saffron-alpha:  rgba(232,100,26,0.1);
+  --bt-jade:           #1A6B4A;
+  --bt-jade-dark:      #0D4A31;
+  --bt-jade-light:     #E8F5EE;
+  --bt-jade-alpha:     rgba(26,107,74,0.1);
+  --bt-gold:           #D4A843;
+  --bt-ink:            #0F0F10;
+  --bt-ink-2:          #1A1A1C;
+  --bt-cream:          #F8F5F0;
+}
+
+/* ── Typography ── */
+body, .frappe-app {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.navbar-brand, h1, h2, h3,
+.page-title, .sidebar-title,
+.widget-head .widget-title {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* ── Navbar ── */
+.navbar.navbar-default {
+  background: var(--bt-ink-2) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  box-shadow: none !important;
+}
+
+.navbar-brand {
+  color: #F0EDE8 !important;
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 18px !important;
+  letter-spacing: -0.3px !important;
+}
+
+/* Hide default Frappe brand, replace with BhartERP */
+.navbar-brand::before {
+  content: 'Bhart';
+  color: #F0EDE8;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+}
+.navbar-brand::after {
+  content: 'ERP';
+  color: var(--bt-saffron);
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+}
+.navbar-brand img, .navbar-brand span.brand-name { display: none !important; }
+
+.navbar .navbar-nav > li > a {
+  color: rgba(240,237,232,0.7) !important;
+  font-size: 13px !important;
+  transition: color 0.15s !important;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li.active > a {
+  color: var(--bt-saffron) !important;
+  background: transparent !important;
+}
+
+.navbar .search-bar .awesomplete input {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #F0EDE8 !important;
+  border-radius: 6px !important;
+}
+
+/* ── Sidebar ── */
+.layout-side-section,
+.desk-sidebar {
+  background: var(--bt-ink-2) !important;
+  border-right: 1px solid rgba(255,255,255,0.06) !important;
+}
+
+.desk-sidebar .sidebar-item.selected,
+.desk-sidebar .sidebar-item:hover {
+  background: var(--bt-saffron-alpha) !important;
+  color: var(--bt-saffron) !important;
+  border-radius: 6px !important;
+}
+
+.desk-sidebar .sidebar-item.selected {
+  border-left: 3px solid var(--bt-saffron) !important;
+}
+
+.desk-sidebar .standard-sidebar-item > .sidebar-item-label {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  background: var(--bt-saffron) !important;
+  border-color: var(--bt-saffron-dark) !important;
+  color: white !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 500 !important;
+  border-radius: 7px !important;
+  box-shadow: none !important;
+  transition: all 0.15s !important;
+}
+.btn-primary:hover {
+  background: var(--bt-saffron-dark) !important;
+  border-color: var(--bt-saffron-dark) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-secondary, .btn-default {
+  border-radius: 7px !important;
+  box-shadow: none !important;
+}
+
+/* ── Form headers ── */
+.page-title .title-text { font-family: 'Syne', sans-serif !important; font-weight: 700 !important; }
+
+.indicator-pill.green, .badge.green { background: var(--bt-jade-alpha) !important; color: var(--bt-jade) !important; }
+.indicator-pill.orange { background: var(--bt-saffron-alpha) !important; color: var(--bt-saffron) !important; }
+
+/* ── Cards & Widgets ── */
+.widget-shadow, .card, .frappe-card {
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+}
+
+.widget.onboarding-widget .widget-head {
+  background: var(--bt-saffron) !important;
+  color: white !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+/* ── Links ── */
+a, .form-link .link-btn { color: var(--bt-saffron) !important; }
+a:hover { color: var(--bt-saffron-dark) !important; }
+
+/* ── Tabs ── */
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+  border-bottom: 2px solid var(--bt-saffron) !important;
+  color: var(--bt-saffron) !important;
+}
+
+/* ── Doctype List ── */
+.list-row-checkbox:checked { accent-color: var(--bt-saffron) !important; }
+.list-subject-field a { color: var(--bt-saffron) !important; }
+
+/* ── Workspace ── */
+.workspace-sidebar-item.selected { background: var(--bt-saffron-alpha) !important; }
+.workspace-sidebar-item.selected .title { color: var(--bt-saffron) !important; }
+
+/* ── Dashboard charts ── */
+.chart-container .bars rect, .chart-container .line-graph path.line {
+  fill: var(--bt-saffron) !important;
+}
+
+/* ── Footer ── */
+footer.footer {
+  background: var(--bt-ink-2) !important;
+  color: rgba(240,237,232,0.4) !important;
+  border-top: 1px solid rgba(255,255,255,0.05) !important;
+  font-size: 11px !important;
+}
+footer.footer::after {
+  content: ' · Powered by Paisape Techfin Private Limited';
+}
+
+/* ── Login Page ── */
+.login-content.page {
+  background: var(--bt-ink) !important;
+}
+
+.login-content .for-login .page-card {
+  background: #1A1A1C !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4) !important;
+}
+
+.login-content .for-login .page-card h2 {
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 24px !important;
+  color: #F0EDE8 !important;
+}
+
+.login-content .for-login .page-card input[type="email"],
+.login-content .for-login .page-card input[type="password"],
+.login-content .for-login .page-card input[type="text"] {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #F0EDE8 !important;
+  border-radius: 8px !important;
+}
+
+.login-content .for-login .page-card input:focus {
+  border-color: var(--bt-saffron) !important;
+  box-shadow: 0 0 0 3px rgba(232,100,26,0.15) !important;
+}
+
+.login-content .for-login .page-card .btn-login-option {
+  background: var(--bt-saffron) !important;
+  border-color: var(--bt-saffron-dark) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  font-family: 'Syne', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  padding: 10px !important;
+}
+
+/* ── Notifications ── */
+.notification-indicator { background: var(--bt-saffron) !important; }
+
+/* ── Progress bars ── */
+.progress-bar { background: var(--bt-saffron) !important; }

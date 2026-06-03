@@ -1,0 +1,10 @@
+{
+  "name": "BhartERP Sales Order Confirmation",
+  "module": "BhartERP Theme",
+  "document_type": "Sales Order",
+  "event": "Submit",
+  "condition": "doc.docstatus == 1",
+  "subject": "Order Confirmed: {{ doc.name }} — {{ doc.company }}",
+  "recipients": [{"receiver_by_document_field": "contact_email"}],
+  "enabled": 1
+}

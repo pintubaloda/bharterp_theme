@@ -1,0 +1,1 @@
+⚠ Low Stock Alert — {{ doc.item_name or doc.item_code }} ({{ doc.warehouse }})

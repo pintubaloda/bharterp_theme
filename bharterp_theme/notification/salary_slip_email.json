@@ -1,0 +1,10 @@
+{
+  "name": "BhartERP Salary Slip Email",
+  "module": "BhartERP Theme",
+  "document_type": "Salary Slip",
+  "event": "Submit",
+  "condition": "doc.docstatus == 1",
+  "subject": "Your Salary Slip — {{ doc.name }} ({{ doc.company }})",
+  "recipients": [{"receiver_by_document_field": "employee"}],
+  "enabled": 1
+}

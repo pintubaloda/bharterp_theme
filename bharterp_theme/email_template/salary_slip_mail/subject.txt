@@ -1,0 +1,1 @@
+Your Salary Slip for {{ frappe.format(doc.start_date, {'fieldtype':'Date'}) }} — {{ doc.company }}

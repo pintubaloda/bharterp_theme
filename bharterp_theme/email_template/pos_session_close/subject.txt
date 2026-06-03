@@ -1,0 +1,1 @@
+POS Session Closed — {{ doc.pos_profile }} | {{ doc.company }}

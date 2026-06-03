@@ -1,0 +1,17 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "bharterp_theme"
+dynamic = ["version"]
+description = "BhartERP Theme — Branding, Print Templates, Email Templates and India Compliance for ERPNext"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Paisape Techfin Private Limited", email = "dev@paisape.org" }]
+requires-python = ">=3.10"
+dependencies = ["frappe"]
+
+[project.urls]
+Homepage = "https://github.com/paisape-techfin/bharterp_theme"
+Issues   = "https://github.com/paisape-techfin/bharterp_theme/issues"

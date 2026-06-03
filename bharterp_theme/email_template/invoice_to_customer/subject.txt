@@ -1,0 +1,1 @@
+Invoice from {{ doc.company }}: {{ doc.name }} — ₹{{ doc.grand_total }}

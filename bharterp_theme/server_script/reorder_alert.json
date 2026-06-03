@@ -1,0 +1,9 @@
+{
+  "name": "BhartERP Reorder Level Alert",
+  "module": "BhartERP Theme",
+  "script_type": "DocType Event",
+  "dt": "Bin",
+  "doctype_event": "after_save",
+  "enabled": 1,
+  "script": "if doc.actual_qty <= (doc.reorder_level or 0) and doc.reorder_level > 0:\n    item_name = frappe.db.get_value('Item', doc.item_code, 'item_name') or doc.item_code\n    reorder_qty = frappe.db.get_value('Item', doc.item_code, 'reorder_qty') or 0\n    purchase_managers = frappe.db.get_all(\n        'Has Role',\n        filters={'role': 'Purchase Manager', 'parenttype': 'User'},\n        fields=['parent']\n    )\n    for pm in purchase_managers:\n        try:\n            frappe.sendmail(\n                recipients=[pm.parent],\n                subject=f'⚠ BhartERP Low Stock: {item_name} ({doc.warehouse})',\n                message=f'''\n<div style=\"font-family:sans-serif;padding:20px;max-width:480px\">\n  <h3 style=\"color:#E8641A\">⚠ Low Stock Alert</h3>\n  <p><strong>Item:</strong> {item_name} ({doc.item_code})<br>\n  <strong>Warehouse:</strong> {doc.warehouse}<br>\n  <strong>Current Qty:</strong> <span style=\"color:red;font-weight:bold\">{doc.actual_qty}</span><br>\n  <strong>Reorder Level:</strong> {doc.reorder_level}<br>\n  <strong>Reorder Qty:</strong> {reorder_qty}</p>\n  <p style=\"color:#888;font-size:12px\">Please create a Material Request or Purchase Order immediately.</p>\n  <p style=\"font-size:11px;color:#aaa\">— BhartERP · Paisape Techfin Private Limited</p>\n</div>'''\n            )\n        except Exception:\n            pass"
+}

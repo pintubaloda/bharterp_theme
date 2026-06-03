@@ -1,0 +1,10 @@
+{
+  "name": "BhartERP PO to Vendor",
+  "module": "BhartERP Theme",
+  "document_type": "Purchase Order",
+  "event": "Submit",
+  "condition": "doc.docstatus == 1",
+  "subject": "Purchase Order {{ doc.name }} from {{ doc.company }}",
+  "recipients": [{"receiver_by_document_field": "contact_email"}],
+  "enabled": 1
+}

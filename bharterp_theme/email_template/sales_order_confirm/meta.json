@@ -1,0 +1,8 @@
+{
+  "name": "BhartERP Sales Order Confirmation",
+  "module": "BhartERP Theme",
+  "subject": "Order Confirmed: {{ doc.name }} — {{ doc.company }}",
+  "use_html": 1,
+  "enabled": 1,
+  "reference_doctype": "Sales Order"
+}

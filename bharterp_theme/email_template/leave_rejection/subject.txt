@@ -1,0 +1,1 @@
+Leave Request Update — {{ doc.leave_type }} ({{ doc.company }})

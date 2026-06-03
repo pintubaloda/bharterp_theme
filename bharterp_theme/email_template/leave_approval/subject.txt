@@ -1,0 +1,1 @@
+Leave Approved ✓ — {{ doc.leave_type }} ({{ doc.from_date }} to {{ doc.to_date }})

@@ -1,0 +1,6 @@
+include bharterp_theme/public/css/*.css
+include bharterp_theme/public/js/*.js
+recursive-include bharterp_theme/print_format *.html *.json
+recursive-include bharterp_theme/email_template *.html *.txt *.json
+recursive-include bharterp_theme/fixtures *.json
+recursive-include bharterp_theme/workspace *.json

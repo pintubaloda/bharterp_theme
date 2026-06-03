@@ -1,0 +1,11 @@
+{
+  "name": "BhartERP Low Stock Alert",
+  "module": "BhartERP Theme",
+  "document_type": "Bin",
+  "event": "Value Change",
+  "value_changed": "actual_qty",
+  "condition": "doc.actual_qty <= doc.reorder_level and doc.reorder_level > 0",
+  "subject": "⚠ Low Stock Alert — {{ doc.item_code }} ({{ doc.warehouse }})",
+  "recipients": [{"receiver_by_role": "Purchase Manager"}],
+  "enabled": 1
+}

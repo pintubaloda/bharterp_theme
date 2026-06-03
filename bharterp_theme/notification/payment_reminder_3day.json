@@ -1,0 +1,15 @@
+{
+  "name": "BhartERP Payment Reminder 3 Days",
+  "module": "BhartERP Theme",
+  "document_type": "Sales Invoice",
+  "event": "Days Before",
+  "days_in_advance": 3,
+  "date_changed": "due_date",
+  "send_alert_on": "Days Before",
+  "condition": "doc.outstanding_amount > 0 and doc.docstatus == 1",
+  "subject": "Payment Due in 3 Days — {{ doc.name }} ({{ doc.company }})",
+  "message": "{% from 'bharterp_theme/email_template/payment_reminder_3d/response.html' import '' %}",
+  "recipients": [{"receiver_by_document_field": "contact_email"}],
+  "enabled": 1,
+  "send_system_notification": 0
+}
